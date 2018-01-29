@@ -25,7 +25,7 @@ module Thermite
   , createClass
   , createReactSpec
   , createReactSpec'
-  , defaultMain
+--  , defaultMain
   , withState
   , focus
   , focusState
@@ -61,7 +61,7 @@ import Data.Monoid (class Monoid)
 import Data.Tuple (Tuple(..))
 import React (createFactory)
 import React.DOM (div')
-import ReactDOM (render)
+-- import ReactDOM (render)
 
 -- | A type synonym for an action handler, which takes an action, the current props
 -- | and state for the component, and return a `CoTransformer` which will emit
@@ -273,6 +273,7 @@ createReactSpec' wrap (Spec spec) =
 
 -- | A default implementation of `main` which renders a component to the
 -- | document body.
+{-
 defaultMain
   :: forall state props action eff
    . Spec eff state props action
@@ -284,7 +285,7 @@ defaultMain spec initialState props = void do
   document <- DOM.window >>= DOM.document
   container <- DOM.body document
   traverse_ (render (createFactory component props) <<< DOM.htmlElementToElement) container
-
+-}
 -- | This function captures the state of the `Spec` as a function argument.
 -- |
 -- | This can sometimes be useful in complex scenarios involving the `focus` and
